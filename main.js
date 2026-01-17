@@ -153,3 +153,10 @@ window.sendToWhatsApp = function() {
     // Open WhatsApp
     window.open(whatsappURL, '_blank');
 };
+
+
+function changePrice(el,newP,oldP){
+  const card = el.closest(".card");
+  card.querySelector(".new-price").innerText = "₹" + newP + ".00";
+  card.querySelector(".old-price").innerText = "₹" + oldP + ".00";
+}
