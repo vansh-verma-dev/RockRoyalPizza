@@ -1,1263 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="website icon" type="png" href="assits/logo.png">
+  <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-  <title>RoyalRockPizza | Best Pizza in [sardhana]</title>
+  <title>SR Royal Cafe & Pizza | Premium Quality Food in Meerut</title>
 </head>
 
 <body>
-  <header>
-    <nav>
-      <div class="logo">.</div>
-      <div class="search-box"> <input type="search" placeholder="search You Pizza" id="Search-input" /><span class="search-icon"><i class="fa-solid fa-magnifying-glass "></i></span></div>
-     
-      <ul>
-        <a href="#Home">Home</a>
-        <a href="#about">About</a>
-        <a href="#Menu">Menu</a>
-    <a href="javascript:void(0)" onclick="openCart()" style="position:relative;">
-    Cart <span id="cart-count-badge" style="background:red; color:white; font-size:10px; padding:2px 6px; border-radius:50%; position:absolute; top:-5px; right:-10px; display:none;">0</span>
-</a>
-      </ul>
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header id="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <!-- Logo -->
+        <div class="logo">
+          <i class="fas fa-utensils"></i>
+          <span> SR Royal Cafe & Pizza</span>
+        </div>
+
+        <!-- Nav Links -->
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <!-- Cart Icon -->
+        <button class="cart-btn" onclick="openCart()">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count-badge" class="badge">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
     </nav>
   </header>
-  <!-- =====Hero Section====== -->
-  <div class="hero" id="Home">
 
-    <div class="title" id="botmhome">
-      <h2>Don't Wait, <br />Order Your <span style="color: rgb(255, 0, 0);">Food!</span></h2>
-      <p>
-        Experience the royal taste at Royal Rock Pizza. We serve freshly
-        prepared pizzas and snacks using quality ingredients to give you rich
-        flavor and unforgettable taste. 
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-badge">Welcome to Royal Cafe & Pizza</div>
+      <h1 class="hero-title">
+        Authentic Taste<br>
+        <span class="highlight">Premium Quality</span>
+      </h1>
+      <p class="hero-description">
+        Experience the finest culinary delights. Our expertly crafted pizzas and delicious cafe specialties are made with premium ingredients, prepared fresh to order, and delivered with passion.
       </p>
-      <button class="orderbtn">Order Now</button>
+      <div class="hero-stats">
+        <div class="stat">
+          <i class="fas fa-star"></i>
+          <span>4.8 Rating</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-users"></i>
+          <span>10K+ Customers</span>
+        </div>
+        <div class="stat">
+          <i class="fas fa-bolt"></i>
+          <span>Fast Delivery</span>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+        Explore Menu
+        <i class="fas fa-arrow-right"></i>
+      </button>
     </div>
+    <div class="hero-image">
+      <img src="/assits/herobg.png" alt="">
+    </div>
+  </section>
 
-  </div>
-  <!-- ======Heading===== -->
-  <div class="heding" id="Menu">Classic Pizza Offer</div>
-  <div class="main-container" id="botmenu">
-    <!-- =====Card One===== -->
-    <div class="card">
-  <img src="https://i.pinimg.com/736x/87/d3/dc/87d3dc0225d21869daf72e1f9a198ba4.jpg">
-  <h3>Margherita Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,99,120)">
-      <span>Small</span>
-    </label>
+  <!-- ===== SECTIONS WRAPPER ===== -->
+  <main class="menu-container">
+    <!-- Classic Pizza Section -->
+    <section class="menu-section" id="menu">
+      <div class="section-header">
+        <h2>Classic Pizza Offer</h2>
+        <p>Our signature collection of timeless pizzas</p>
+      </div>
+      <div class="products-grid" id="classic-pizza"></div>
+    </section>
 
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,189,220)">
-      <span>Medium</span>
-    </label>
+    <!-- Veg Treat Pizza Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Veg Treat Pizza Offer</h2>
+        <p>Fresh and healthy vegetarian options</p>
+      </div>
+      <div class="products-grid" id="veg-treat-pizza"></div>
+    </section>
 
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,289,319)">
-      <span>Large</span>
-    </label>
-  </div>
+    <!-- Veg Special Pizza Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Veg Special Pizza</h2>
+        <p>Premium vegetarian delicacies</p>
+      </div>
+      <div class="products-grid" id="veg-special-pizza"></div>
+    </section>
 
-  <p class="price">
-    <span class="new-price">₹99.00</span>
-    <span class="old-price">₹120.00</span>
-  </p>
+    <!-- Single & Double Topping Pizza Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Single & Double Topping Pizza</h2>
+        <p>Customize with your favorite toppings</p>
+      </div>
+      <div class="products-grid" id="single-double-pizza"></div>
+    </section>
 
-  <button class="buybtn">Order Now</button>
+    <!-- Burger Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Best Burger Offer</h2>
+        <p>Crispy and delicious burgers</p>
+      </div>
+      <div class="products-grid" id="burger"></div>
+    </section>
+
+    <!-- Momos Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Best Momos</h2>
+        <p>Steamed and fried momos</p>
+      </div>
+      <div class="products-grid" id="momos"></div>
+    </section>
+
+    <!-- Pasta Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Best Pasta</h2>
+        <p>Delicious pasta with various sauces</p>
+      </div>
+      <div class="products-grid" id="pasta"></div>
+    </section>
+
+    <!-- Chinese Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Best Chinese</h2>
+        <p>Popular Chinese dishes</p>
+      </div>
+      <div class="products-grid" id="chinese"></div>
+    </section>
+
+    <!-- Shakes & Mocktails Section -->
+    <section class="menu-section">
+      <div class="section-header">
+        <h2>Shakes & Mocktails</h2>
+        <p>Refreshing beverages</p>
+      </div>
+      <div class="products-grid" id="shakes"></div>
+    </section>
+  </main>
+
+<!-- ===== BANNER SECTION ===== -->
+<div class="banner">
+  <img src="assits/banner.PNG" alt="Royal Cafe & Pizza Banner">
 </div>
 
-    <!-- =====Card Two===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/1200x/80/a5/61/80a5612c8b0a7b4399af79cd6e9d4a33.jpg">
-  <h3>Cheese & Corn</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,99,120)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,189,220)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,289,319)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹99.00</span>
-    <span class="old-price">₹120.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Card three ==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/ba/7d/89/ba7d893d4ef7b51e96f47ca257c54308.jpg">
-  <h3>Double Cheese Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,199,139)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,219,249)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹199.00</span>
-    <span class="old-price">₹139.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Crad four===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/02/16/ed/0216ed5035ddc708aea2afde7cc61050.jpg">
-  <h3>Garden Fresh Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,119,139)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,219,249)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹119.00</span>
-    <span class="old-price">₹139.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- ====Crad five==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/ff/d7/83/ffd783490a9a42304a62dec0a4cf117a.jpg">
-  <h3>Chilli Paneer Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,119,139)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,219,239)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,319,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹119.00</span>
-    <span class="old-price">₹139.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-  </div>
-
-  <div class="heding">Veg Treat Pizza Offer</div>
-  <div class="main-container" id="botmenu">
-    <!-- =====Card One===== -->
-    <div class="card">
-  <img src="https://i.pinimg.com/1200x/75/ca/ab/75caabefbd68c11aaf93abd5e9dcf4b5.jpg">
-  <h3>Country Fest Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,149,169)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,269,299)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹149.00</span>
-    <span class="old-price">₹169.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-
-    <!-- =====Card Two===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/cc/18/c4/cc18c446b9c0cf894d79bc8f676a8aae.jpg">
-  <h3>Farm House Pizza</h3>
-  <!-- Size Selector -->
-    <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,149,169)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,269,299)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹149.00</span>
-    <span class="old-price">₹169.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Card three ==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/3e/c9/fe/3ec9fe32c6217014789b5f42e2343f47.jpg">
-  <h3>Italian Spicy Pizza</h3>
-  <!-- Size Selector -->
-    <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,149,169)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,269,299)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹149.00</span>
-    <span class="old-price">₹169.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Crad four===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/62/d8/d2/62d8d2de85f4c8bc6ef9e082b05bc1e3.jpg">
-  <h3>Veggie Delight Pizza</h3>
-  <!-- Size Selector -->
-   <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,149,169)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,269,299)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,399,439)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹149.00</span>
-    <span class="old-price">₹169.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- ====Crad five==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/df/11/13/df11137f7ea78702571c15bccc691eb6.jpg">
-  <h3>Moon Light Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,199,219)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,349,369)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,539)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹199.00</span>
-    <span class="old-price">₹219.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-  </div>
-
-  <div class="heding">Veg Special Pizza </div>
-  <div class="main-container" id="botmenu">
-    <!-- =====Card One===== -->
-    <div class="card">
-  <img src="https://i.pinimg.com/1200x/fc/83/45/fc8345e8146ca1c5e36e622ad1ad1117.jpg">
-  <h3>Peppy panner Pizza</h3>
-  <!-- Size Selector -->
-  <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,179,199)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,309,339)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,549)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹179.00</span>
-    <span class="old-price">₹199.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-
-    <!-- =====Card Two===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/1200x/97/ec/9f/97ec9fa2557c229797b92a3f9c4d46a4.jpg">
-  <h3>Three Peppers Pizza</h3>
-  <!-- Size Selector -->
-      <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,179,199)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,309,339)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,549)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹179.00</span>
-    <span class="old-price">₹199.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Card three ==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/1200x/b7/e5/83/b7e5833766140c24d5c96ee3ae612664.jpg">
-  <h3>Deluxe veggie Pizza</h3>
-  <!-- Size Selector -->
-      <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,179,199)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,309,339)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,549)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹179.00</span>
-    <span class="old-price">₹199.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- =====Crad four===== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/fa/d5/45/fad545937e7fbd21d9c0d1a627fd8ca8.jpg">
-  <h3>Magic of pine Pizza</h3>
-  <!-- Size Selector -->
-     <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,179,199)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,309,339)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,549)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹179.00</span>
-    <span class="old-price">₹199.00</span>
-  </p>
-
-
-  <button class="buybtn">Order Now</button>
-</div>
-    <!-- ====Crad five==== -->
-       <div class="card">
-  <img src="https://i.pinimg.com/736x/74/78/f2/7478f29606655414adab4a69046cc356.jpg">
-  <h3>Achari pizza</h3>
-  <!-- Size Selector -->
-    <div class="size-box">
-    <label>
-      <input type="radio" name="size1" checked
-        onclick="changePrice(this,179,199)">
-      <span>Small</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,309,339)">
-      <span>Medium</span>
-    </label>
-
-    <label>
-      <input type="radio" name="size1"
-        onclick="changePrice(this,499,549)">
-      <span>Large</span>
-    </label>
-  </div>
-
-  <p class="price">
-    <span class="new-price">₹179.00</span>
-    <span class="old-price">₹199.00</span>
-  </p>
-
-  <button class="buybtn">Order Now</button>
-</div>
-  </div>
-
-  <!-- =========================================================== -->
-     <div class="heding">Single & Double Topping Pizza </div>
-  <!-- ========Main-Container====== -->
-  <div class="main-container" id="botmenu">
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/8a/bc/32/8abc32d74c1c84e83081fbf4229bf24f.jpg">
-      <h3>Tomato Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹49.00</span>
-        <span class="old-price">61.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/6e/82/eb/6e82ebfbe389f10aaae5a404eb78250f.jpg">
-      <h3>Onion Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹55.00</span>
-        <span class="old-price">75.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/14/3e/ea/143eeace476bf58fc83302233b88d400.jpg">
-      <h3>Capsicum Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹65.00</span>
-        <span class="old-price">80.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/59/cb/f7/59cbf767fd59c008fa9e9a8a2f8d6741.jpg">
-      <h3>Corn Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹69.00</span>
-        <span class="old-price">78.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- ====Crad five==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/f7/5d/f9/f75df93b8bfe1ce252bdf21e06614b90.jpg">
-      <h3>Onion & Capsicum Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹79.00</span>
-        <span class="old-price">85.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====card six==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/6d/bd/23/6dbd23858d3383e4540b5a4950bcdf4f.jpg">
-      <h3>Tomato & Corn Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹89.00</span>
-        <span class="old-price">99.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Seven===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/e3/6e/8d/e36e8d54f31d5cee26ffd89613faa077.jpg">
-      <h3>Onion & paneer Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹99.00</span>
-        <span class="old-price">120.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Eight ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/45/a2/c0/45a2c09c9722c43aff55f63dea4e4bdb.jpg">
-      <h3>Corn & Paneer Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹99.00</span>
-        <span class="old-price">120.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-  </div>
-  <!-- ====Heading==== -->
-  <div class="heding"> Best Burger Offer</div>
-  <!-- ====Burger container===== -->
-  <div class="main-container">
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/9d/02/b7/9d02b7a8da61091110dc65cbc1a325e6.jpg">
-      <h3>Aloo Tikki Burger</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹35.00</span>
-        <span class="old-price">40.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/1f/a6/a6/1fa6a68b3d2df3d3bce57b3fcf4c547f.jpg">
-      <h3>Cheese Pizza</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹39.00</span>
-        <span class="old-price">51.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/27/ab/5e/27ab5edd0885b823023a2b5ba47a1f04.jpg">
-      <h3>Veg Delight Burger</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹49.00</span>
-        <span class="old-price">61.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/ae/87/34/ae8734bba9f10dc8cc91e36251802345.jpg">
-      <h3>Spicy Paneer Burger</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹59.00</span>
-        <span class="old-price">68.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- ====Crad five==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/94/67/50/946750ea3f0a6ea7c80e011b3edb36c6.jpg">
-      <h3>Achari Paneer Burger</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹69.00</span>
-        <span class="old-price">81.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====card six==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/fc/7e/54/fc7e54fd61beca54c61443da5cf0deb2.jpg">
-      <h3>RRP specil Burger</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹89.00</span>
-        <span class="old-price">100.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-  </div>
-  <!-- ====Heading==== -->
-  <div class="heding"> Best Momos</div>
-  <div class="main-container">
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/77/e3/4a/77e34a1c214505230504e81a38dabbb9.jpg">
-      <h3>Veg Momos Steam</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹40.00</span>
-        <span class="old-price">80.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/57/1a/b0/571ab0a00eb9278dcbbaa74802422943.jpg">
-      <h3>Veg Momo Fried</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹40.00</span>
-        <span class="old-price">80.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/fe/c3/b3/fec3b34d5edb094554ed761c0d6f9d17.jpg">
-      <h3>Paneer Momo Steam</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹50.00</span>
-        <span class="old-price">100.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/8d/16/33/8d1633d85a3d67902c81cf7ca454ae6a.jpg">
-      <h3>Paneer Momo Fried</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹50.00</span>
-        <span class="old-price">100.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- ====Crad five==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/76/42/3f/76423f37af3460b12c9368f19cc941bf.jpg">
-      <h3>Kurkure Momo</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹70.00</span>
-        <span class="old-price">130.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-
-  </div>
-  </div>
-  <!-- ====Heading==== -->
-
-    <!-- =====banner ===== -->
-    <div class="heding"> Best Pasta</div>
-  <div class="main-container">
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/9c/3b/72/9c3b7274384a0bab197fd68115a395ff.jpg">
-      <h3>Red Sauce Pasta</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹99.00</span>
-        <span class="old-price">120.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/29/74/5d/29745d18dab2b5f267488eccbce0a576.jpg">
-      <h3>White Souce Pasta</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹109.00</span>
-        <span class="old-price">133.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/a6/80/54/a68054e651f0e76bd07e3a69c86f1d66.jpg">
-      <h3>Makhani pasta</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹119.00</span>
-        <span class="old-price">140.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/91/8c/1f/918c1f36d70fe46be4735229cf48b47b.jpg">
-      <h3>White & Red Mix Pasta</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹119.00</span>
-        <span class="old-price">139.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-
-  </div>
-  <!-- ====Heading==== -->
-  <div class="heding"> Best Chinese</div>
-  <div class="main-container">
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/5d/2d/ea/5d2deaef85d57d42325db719324cb415.jpg">
-      <h3>Chilli potato</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹50.00</span>
-        <span class="old-price">100.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/25/2e/01/252e01a45942bc9ae8fa9453942fc036.jpg">
-      <h3>Veg Chowmin</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹40.00</span>
-        <span class="old-price">80.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/c4/8a/3a/c48a3a37c154cd9eb91e676af69ca2e3.jpg">
-      <h3>Soya Chowmin</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹40.00</span>
-        <span class="old-price">80.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/4f/f9/09/4ff909ef06076434b6c179218ab832ba.jpg">
-      <h3>Chilli Garlic Noodles</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹50.00</span>
-        <span class="old-price">100.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/6a/f9/0c/6af90c4027fc2b0125314436821abb49.jpg">
-      <h3>Schezwan Noodles</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹60.00</span>
-        <span class="old-price">110.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- ====Crad five==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/6a/e8/cf/6ae8cfa6c1da784dde2de01bb9b49493.jpg">
-      <h3>Singapore Noodles</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹60.00</span>
-        <span class="old-price">110.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====card six==== -->
-
-  </div>
-
-  <div class="heding">Shakes & Mocktales</div>
-  <div class="main-container">
-    <!-- =====Card One===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/1200x/dc/83/37/dc833736a16a5d16416c76348d860b15.jpg">
-      <h3>Vanila Shake</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹69.00</span>
-        <span class="old-price">81.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card Two===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/ca/dc/c0/cadcc039f7e8e58e8c27dd1f90aac995.jpg">
-      <h3>Strawberry Shake</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹79.00</span>
-        <span class="old-price">99.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Card three ==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/07/de/ca/07deca25c60699088843cdfa97ef6e03.jpg">
-      <h3>Chocolate Shake</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹69.00</span>
-        <span class="old-price">75.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====Crad four===== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/20/29/ef/2029ef7a62e7b477632b27c2db403bb8.jpg">
-      <h3>Cold Coffe</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹79.00</span>
-        <span class="old-price">99.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- ====Crad five==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/74/62/3b/74623b8ea9c0ce70badaff066f6a745d.jpg">
-      <h3>Kit Kat Shake</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹89.00</span>
-        <span class="old-price">99.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-    <!-- =====card six==== -->
-    <div class="card">
-      <img src="https://i.pinimg.com/736x/32/ba/a1/32baa1bfa350af534d792fe6506d9704.jpg">
-      <h3>Oreo Shake</h3>
-      <span class="icon"><i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <i class="fa-solid fa-star"></i>
-        <p>4.8</p>
-      </span>
-      <p class="price">
-        <span class="new-price">₹89.00</span>
-        <span class="old-price">99.00</span>
-      </p>
-      <button class="buybtn">Order Now</button>
-    </div>
-  </div>
-
-  <!-- ====contact section======= -->
-
-  <!-- ====footer section===== -->
-  <footer class="site-footer" id="contact">
-
-    <div class="footer-container" id="about">
-
-      <!-- BRAND -->
-      <div class="footer-col brand">
-        <h2>Royal Rock Pizza 🍕</h2>
-        <p>
-          Fresh ingredients, oven-baked pizzas and fast delivery.
-          Taste the real flavour with Royal Rock Pizza.
-        </p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" id="contact">
+    <div class="footer-container">
+      <!-- Brand Section -->
+      <div class="footer-col">
+        <h3><i class="fas fa-utensils"></i> Royal Cafe & Pizza</h3>
+        <p>Premium quality pizzas, delicious cafe specialties, and fast delivery. Experience authentic taste with every bite.</p>
       </div>
 
-      <!-- QUICK LINKS -->
+      <!-- Quick Links -->
       <div class="footer-col">
-        <h3>Quick Links</h3>
+        <h4>Quick Links</h4>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
-      <!-- CONTACT INFO -->
+      <!-- Contact Info -->
       <div class="footer-col">
-        <h3>Contact</h3>
-        <p>📍 Bhuni Chopla , Near Kadam Public School,Sarurpur Road (Meerut)</p>
-        <p>📞 +91 9368549887</p>
-        <p>🕒 11 AM – 11 PM</p>
+        <h4>Contact Us</h4>
+        <p><i class="fas fa-map-marker-alt"></i> Bhuni Chopla, Near Kadam Public School, Sarurpur Road, Meerut</p>
+        <p><i class="fas fa-phone"></i> +91 9354776091</p>
+        <p><i class="fas fa-clock"></i> 11 AM – 11 PM Daily</p>
       </div>
 
-      <!-- SOCIAL -->
+      <!-- Social Links -->
       <div class="footer-col">
-        <h3>Follow Us</h3>
+        <h4>Follow Us</h4>
         <div class="social-links">
-          <a href="#">Instagram</a>
-          <a href="#">Facebook</a>
-          <a href="#">WhatsApp</a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
-
     </div>
-<div id="cart-toast" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #27ae60; color: white; padding: 12px 25px; border-radius: 50px; z-index: 2000; transition: 0.5s ease; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-    Item Added to Cart! 🍕
-</div>
-
-<div id="cart-sidebar" style="position: fixed; top: 0; right: -100%; width: 350px; height: 100vh; background: white; z-index: 1001; transition: 0.4s; box-shadow: -5px 0 15px rgba(0,0,0,0.1); display: flex; flex-direction: column;">
-    <div style="background: var(--primary-color); color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center;">
-        <h2 style="margin:0">Your Cart</h2>
-        <i class="fa-solid fa-xmark" onclick="closeCart()" style="cursor:pointer; font-size: 24px;"></i>
-    </div>
-    
-    <div id="cart-items-container" style="flex: 1; overflow-y: auto; padding: 20px;">
-        <p id="empty-msg" style="text-align: center; color: #888; margin-top: 50px;">Your cart is empty</p>
-    </div>
-
-    <div style="padding: 20px; border-top: 1px solid #ddd; background: #f9f9f9;">
-        <div style="display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 15px;">
-            <span style="color: black;">Total:</span>
-            <span id="cart-total-amount">₹0.00</span>
-        </div>
-        <button  onclick="sendToWhatsApp()" style="width: 100%; background: var(--primary-color); color: rgb(0, 0, 0); border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Checkout Now</button>
-    </div>
-</div>
-
-<div id="cart-overlay" onclick="closeCart()" style="position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:none; z-index:1000;"></div>
 
     <div class="footer-bottom">
-      © 2026 Royal Rock Pizza. All Rights Reserved.
+      <p>&copy; 2026 Royal Cafe & Pizza. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== CART SIDEBAR ===== -->
+  <div class="cart-overlay" id="cart-overlay" onclick="closeCart()"></div>
+  <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button class="close-btn" onclick="closeCart()">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
 
-  </footer>
-  <div class="bottom-nav">
-    <ul>
-      <a href="#botmhome"  class="active"><i class="fa-regular fa-house"></i></a>
-      <a href="#botmenu"  class="active"> <i class="fa-solid fa-list"></i></a>
-   <a href="javascript:void(0)" onclick="openCart()" class="active"> 
-    <i class="fa-solid fa-cart-shopping"></i>
-    <span id="cart-count-badge-mob" style="background:red; color:white; font-size:10px; padding:2px 5px; border-radius:50%; position:absolute; margin-left:-5px; display:none;">0</span>
-</a>
-      <a href="#"  class="active"> <i class="fa-solid fa-phone"></i></a>
-    </ul>
-  </div>
-</body>
-<script src="main.js"></script>
+    <div class="cart-items-container" id="cart-items-container">
+      <p class="empty-cart">Your cart is empty</p>
+    </div>
 
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cart-total-amount">₹0.00</span>
+      </div>
+      <button class="btn btn-primary" onclick="sendToWhatsApp()" style="width: 100%;">
+        Checkout on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== TOAST NOTIFICATION ===== -->
+  <div class="toast" id="cart-toast">
+    <i class="fas fa-check-circle"></i>
+    Item Added to Cart! 🍕
+  </div>
+
+  <!-- ===== MOBILE BOTTOM NAV ===== -->
+  <nav class="bottom-nav">
+    <a href="#home" class="nav-item">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </a>
+    <a href="#menu" class="nav-item">
+      <i class="fas fa-list"></i>
+      <span>Menu</span>
+    </a>
+    <button onclick="openCart()" class="nav-item">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cart-count-badge-mob" class="badge">0</span>
+    </button>
+    <a href="#contact" class="nav-item">
+      <i class="fas fa-phone"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
 </html>
